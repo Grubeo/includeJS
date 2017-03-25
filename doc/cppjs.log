@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.23)  26 MAR 2017 00:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.2.23)  26 MAR 2017 00:43
 entering extended mode
 **./cppjs.tex
 (cppjs.tex
@@ -401,19 +401,19 @@ File: ot4cmtt.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 (kod/tworzenie-obiektow.cpp) (kod/tworzenie-obiektow-konstruktor.cpp)
 (kod/tworzenie-obiektow-argument.cpp [2]) (kod/tworzenie-obiektow-argumenty.cpp
 ) (kod/funkcje.cpp
-Overfull \hbox (3.51503pt too wide) in paragraph at lines 9--10
+Overfull \hbox (3.51503pt too wide) in paragraph at lines 12--13
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-) (kod/funkcje-call.cpp [3]) (kod/funkcje-preprocesor.cpp)
+[3]) (kod/funkcje-call.cpp) (kod/funkcje-preprocesor.cpp)
 Overfull \hbox (3.51503pt too wide) in paragraph at lines 2--89
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-(kod/tablice.cpp) (kod/tablice-iteracja.cpp [4]) (kod/tablice-join.cpp)
-[5] (cppjs.lol
+(kod/tablice.cpp) [4] (kod/tablice-iteracja.cpp) (kod/tablice-join.cpp)
+(kod/tablice-pozostale.cpp [5]) [6] (cppjs.lol
 LaTeX Font Info:    External font `plex10' loaded for size
 (Font)              <10> on input line 1.
 LaTeX Font Info:    External font `plex10' loaded for size
@@ -424,12 +424,12 @@ LaTeX Font Info:    External font `plex10' loaded for size
 \tf@lol=\write4
 \openout4 = `cppjs.lol'.
 
- [6] (cppjs.aux) ) 
+ [7] (cppjs.aux) ) 
 Here is how much of TeX's memory you used:
- 4879 strings out of 493333
- 64536 string characters out of 3140510
- 171363 words of memory out of 3000000
- 8328 multiletter control sequences out of 15000+200000
+ 4918 strings out of 493333
+ 65030 string characters out of 3140510
+ 173363 words of memory out of 3000000
+ 8364 multiletter control sequences out of 15000+200000
  13917 words of font info for 40 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  33i,6n,58p,793b,1555s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -443,9 +443,9 @@ nts/type1/public/pl/plr10.pfb><G:/Programy/LaTex/MiKTeX/fonts/type1/public/pl/p
 lr12.pfb><G:/Programy/LaTex/MiKTeX/fonts/type1/public/pl/plr17.pfb><G:/Programy
 /LaTex/MiKTeX/fonts/type1/public/pl/plr5.pfb><G:/Programy/LaTex/MiKTeX/fonts/ty
 pe1/public/pl/pltt10.pfb>
-Output written on cppjs.pdf (6 pages, 86579 bytes).
+Output written on cppjs.pdf (7 pages, 90342 bytes).
 PDF statistics:
- 61 PDF objects out of 1000 (max. 8388607)
+ 66 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

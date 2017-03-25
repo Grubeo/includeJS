@@ -1,8 +1,11 @@
 #include <iostream>
+#include "js/index.hpp"
 
 int main()
 {
-    var Dog = new Function(INLINE {
+    using namespace js;
+	
+	var Dog = new Function(INLINE {
         that["name"] = "Doge";
 		that["sound"] = "Woof";
         return null;
