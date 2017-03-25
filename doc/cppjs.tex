@@ -1,0 +1,116 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{etoolbox}
+\usepackage{geometry} 
+
+\usepackage[cp1250]{inputenc}
+\usepackage{polski}
+
+\title{Dokumentacja Biblioteki insideJS}
+\author{Robert Bendun}
+\newcommand{\CC}{C\nolinebreak\hspace{-.05em}\raisebox{.4ex}{\tiny\bf +}\nolinebreak\hspace{-.10em}\raisebox{.4ex}{\tiny\bf +}}
+
+
+\definecolor{include_color}{HTML}{3498db}
+\definecolor{line_comment}{HTML}{7f8c8d}
+\definecolor{native_keywords}{HTML}{1abc9c}
+\definecolor{js_keywords}{HTML}{8e44ad}
+\definecolor{strings}{HTML}{e74c3c}
+\definecolor{op}{HTML}{9b59b6}
+
+
+\begin{document}
+\newgeometry{tmargin=2cm, bmargin=2cm, lmargin=2cm, rmargin=2cm} 
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Wprowadzenie}
+Biblioteka insideJS umo¿liwia pisanie natywnego kodu zbli¿onego do jêzyka JavaScript w jêzyku \CC. Do swojego dzia³ania potrzebuje kompilatora obs³uguj¹cego standard \textbf{\CC 11}. Aktualnie biblioteka \textbf{nie jest} prekompilowana. W celu u¿ywania biblioteki wystarczy do³¹czyæ plik nag³ówkowy "js/index.html". W dalszych przyk³adach bêdzie on pomijany. Wiêkszoœæ elementów biblioteki umieszczona jest w przestrzeni nazw \textbf{js} dlatego w dalszych przyk³adach bêdzie ona pomijana. Wyj¹tkami s¹ makra preprocesora. Wyszczególnione s¹ one w rozdziale "Preprocesor". 
+
+\section{Tworzenie podstawowych obiektów}
+Jêzyk JavaScript nie posiada jawnie zdefiniowanego terminu klasy. Podstawowym sposobem tworzenia obiektów jest przypisanie odpowiednich pól z ich wartoœciami. Poni¿ej przyk³ad kodu:
+
+\lstset{
+	numbers=left,
+  	numberstyle=\tiny,
+  	numbersep=5pt,  	
+	language=C++,
+	showstringspaces=false,
+	tabsize=4,
+	backgroundcolor=\color{white},
+	breakatwhitespace=false,
+	basicstyle=\ttfamily,
+	keywordstyle=\color{native_keywords}\ttfamily,
+	stringstyle=\color{strings}\ttfamily,
+	commentstyle=\color{line_comment}\ttfamily,
+	morecomment=[l][\color{include_color}]{\#},
+	morekeywords={std,cerr,cout,cin},
+	keywordstyle=[2]\color{js_keywords},
+   keywords=[2]{js,Object,Array,Function,cast,INLINE,INLINE_ARG,loadJSON,saveJSON,null,var}
+}
+
+\lstset {caption=Podstawowy obiekt}
+\lstinputlisting{kod/tworzenie-obiektow.cpp}
+
+Aby dostaæ siê do pól obiektów nale¿y u¿yæ operatora [], gdzie w nale¿y podaæ odpowiedni¹ nazwê pola. Do wyœwietlania pól obiektu mo¿na wykorzystywaæ standardowe strumienie.
+
+Mo¿liwe jest tak¿e stworzenie obiektu poprzez funkcjê bêd¹c¹ odpowiednikiem konstruktora. Kluczowym elementem takiej funkcji jest zwracanie null na koniec jej dzia³ania.
+
+\lstset {caption=Konstruktor obiektów}
+\lstinputlisting{kod/tworzenie-obiektow-konstruktor.cpp}
+
+Konstruktor mo¿e tak¿e przyjmowaæ argumenty (nale¿y zwróciæ uwagê na zmianê z INLINE na INLINE\_ ARG):
+
+\lstset {caption=Argument konstruktora}
+\lstinputlisting{kod/tworzenie-obiektow-argument.cpp}
+
+W przypadku pojedyñczego argumentu nale¿y u¿yæ operatora wy³uskiwania *. W przypadku podania wiêkszej liczby argumentów nale¿y u¿yæ operatora indeksu [].
+
+\lstset {caption= Argumenty konstruktora}
+\lstinputlisting{kod/tworzenie-obiektow-argumenty.cpp}
+
+\section{Funkcje}
+Aktualnie jedyne funkcje jakie mog¹ byæ tworzone s¹ to funkcje lokalne (znajduj¹ce siê we wnêtrzu klasycznych funkcji z jêzyka \CC. Funkcje mog¹ byæ tak samo elementem obiektów jak ci¹gi znaków b¹dŸ liczby.
+
+\lstset {caption=Funkcja wewn¹trz obiektu}
+\lstinputlisting{kod/funkcje.cpp}
+
+S³owo kluczowe that jest to kontekst funkcji. Kiedy funkcja jest elementem obiektu jak w powy¿szym przyk³adzie that odwo³uje siê do danego obiektu. Kiedy u¿ywamy funkcji konstruktora wtedy that jest odwo³aniem do nowego obiektu. Aby uruchomiæ funkcjê z wymuszonym kontekstem nale¿y zastosowaæ metodê call obiektu funkcyjnego.
+
+\lstset {caption=Ustawianie kontekstu}
+\lstinputlisting{kod/funkcje-call.cpp}
+
+Wystêpuj¹ce wczeœniej INLINE oraz INLINE\_ ARG s¹ w rzeczywistoœci nastêpuj¹cymi deklaracjami preprocesora.
+
+\lstset {caption=Deklaracje preprocesora}
+\lstinputlisting{kod/funkcje-preprocesor.cpp}
+
+Klasa iterator jest to wraper przechowuj¹cy wskaŸnik do rzeczywistego obiektu/funkcji. Umo¿liwa takie operacje jak wy³uskanie, wywo³anie czy indeksowanie. Wiêcej informacji znajduje siê w rozdziale "Przechowywanie obiektów". 
+
+\section{Tablice}
+Tablice tworzone s¹ w sposób analogiczny do obiektów. Wyj¹tkiem jest sposób nadawania identyfikatorów. Wystêpuje on niejawnie.
+
+\lstset {caption=Tworzenie tablicy}
+\lstinputlisting{kod/tablice.cpp}
+
+Jest wiele sposobów na dostanie siê do elementów kontenera. Aby iterowaæ po elementach tablicy mo¿na wykorzystaæ:
+\begin{itemize}
+	\item pêtle zakresow¹ for z \CC 11
+	\item tradycyjn¹ pêtlê for
+	\item metodê for\_ each (a dok³adnie to makro u³atwiaj¹ce korzystanie z niej	
+\end{itemize}
+Wszystkie z poni¿szych metod pokazano poni¿ej. Rezultatem ka¿dej z nich jest ci¹g znaków "Hello 10 World 20".
+
+\lstset {caption=Iteracja po tablicy}
+\lstinputlisting{kod/tablice-iteracja.cpp}
+
+Powy¿szy przyk³ad mo¿na wykonaæ du¿o proœciej za pomoc¹ metody join.
+\lstset {caption=Wykorzystywanie metody join}
+\lstinputlisting{kod/tablice-join.cpp}
+
+\newpage
+\lstlistoflistings
+\end{document}

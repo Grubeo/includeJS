@@ -1,0 +1,17 @@
+#include <iostream>
+
+int sayHello(std::string person)
+{
+	std::cout << "Hello " << person << std::endl;
+}
+
+int main()
+{
+	sayHello("Agatka");
+	
+	int x = 1;
+	for(int i=0; i < 10; i++)
+		x *= i;
+		
+	std::cout << x;
+}

@@ -1,0 +1,4 @@
+\contentsline {section}{\numberline {1}Wprowadzenie}{2}
+\contentsline {section}{\numberline {2}Tworzenie podstawowych obiekt\'ow}{2}
+\contentsline {section}{\numberline {3}Funkcje}{3}
+\contentsline {section}{\numberline {4}Tablice}{4}
